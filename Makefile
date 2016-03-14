@@ -5,7 +5,7 @@
 ## email <adrien.chaix@epitech.eu>
 ## 
 ## Started on  Mon Feb  1 16:12:13 2016 Adrien Chaix
-## Last update Fri Mar 11 15:15:32 2016 Adrien Chaix
+## Last update Sat Mar 12 14:14:25 2016 Adrien Chaix
 ##
 
 CC		=	gcc
@@ -23,6 +23,7 @@ SRC_LIB		=	main_loop_sdl.c \
 			blit_size.c \
 			pixel.c \
 			init.c \
+			get_mouse_pos.c \
 
 OBJS_LIB	=	$(SRC_LIB:.c=.o)
 

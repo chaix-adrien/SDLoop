@@ -5,7 +5,7 @@
 ** Login   <chaix_a@epitech.net>
 **
 ** Started on  Thu Mar 10 15:03:57 2016 Adrien Chaix
-** Last update Fri Mar 11 15:09:35 2016 Adrien Chaix
+** Last update Sat Mar 12 15:29:53 2016 Adrien Chaix
 */
 
 #ifndef SDLOOP_H_
@@ -64,12 +64,12 @@ t_sound	*load_sound(const char *path); // WAV / AIIF / RIFF/ VOC / OGG
 // #   #  #  #   #   #  #      #    #    #    #
 // #####  #   #  #   #  #      #    #  #####  #####
 
-uint	getpixel(const t_pix *surface, const t_pos *pos);
-void	tekpixel(t_pix *surface, const t_pos *pos, unsigned int pixel);
+Uint32 getpixel(const t_pix *surface, t_pos *pos);
+void	tekpixel(t_pix *surface, t_pos *pos, Uint32 pixel);
 void	tekline(t_pix* surf, const t_pos *pos1,
 		const t_pos *pos2, unsigned int couleur);
 void	tekfill(t_pix *surface, const unsigned int color);
-int	tekrect(t_pix *pix, const t_pos *rect, unsigned int color);
+void	tekrect(t_pix *pix, const t_pos *rect, unsigned int color);
 // Fill from (rect->x to rect->x + rect->w) / (rect->y to rect->y + rect->h)
 void	tektext(t_pix *dest, const char *text, t_font *font,
 		const t_pos *pos, unsigned int color);
@@ -117,6 +117,9 @@ typedef int	(*sdl_click_response)(int button, int state, void *data);
 // Keycode are listed in SDL/SDL_keysym.h. ex: SDLK_a
 // Button are listed in SDL/SDL_mouse.h. ex: SDL_BUTTON_LEFT
 // State: STATE_UP / STATE_DOWN
+
+t_pos	get_mouse();
+
 void	sdl_loop(t_pix *win, unsigned char freq, void *data);
 void	set_key_func(sdl_key_response func);
 void	set_loop_func(sdl_loop_response func);
@@ -141,6 +144,7 @@ unsigned int	color(unsigned char cA, unsigned char cR,
 # define B 0
 # define WHITE(alpha) ((alpha << (8 * 3)) + 0x00FFFFFF)
 # define BLACK(alpha) ((alpha << (8 * 3)) + 0x00000000)
+# define GREY(alpha, i) ((alpha << (8 * 3)) + (i << (8 * 2)) + (i << 8) + i)
 # define RED(alpha) ((alpha << (8 * 3)) + 0x00FF0000)
 # define GREEN(alpha) ((alpha << (8 * 3)) + 0x0000FF00)
 # define BLUE(alpha) ((alpha << (8 * 3)) + 0x000000FF)

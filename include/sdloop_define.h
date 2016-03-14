@@ -5,7 +5,7 @@
 ** Login   <chaix_a@epitech.net>
 **
 ** Started on  Fri Mar 11 15:05:30 2016 Adrien Chaix
-** Last update Fri Mar 11 15:06:49 2016 Adrien Chaix
+** Last update Sat Mar 12 11:48:48 2016 Adrien Chaix
 */
 
 #ifndef SDLOOP_DEFINE_H_
@@ -30,7 +30,6 @@
 # define play_sound(s, l) Mix_PlayChannel(-1, s, l)
 # define load_sound Mix_LoadWAV
 
-# define tekrect SDL_FillRect
 # define load_font TTF_OpenFont
 # define load_music Mix_LoadMUS
 # define free_surface SDL_FreeSurface
