@@ -28,9 +28,6 @@ test_and_add_csh()
     fi
 }
 
-echo "Installing SDL, plean enter Root psw for apt-get"
-sudo apt-get install libsdl1.2-dev libsdl-ttf2.0-dev libsdl-image1.2-dev\
-    libsdl-mixer1.2-dev libsdl-mixer1.2 || get_out "Failed to install SDL"
 
 echo "\nTargets are ~/.froot/include and ~/.froot/lib"
 mkdir -p ~/.froot/lib ~/.froot/include	|| get_out "Failed to create installation directories."

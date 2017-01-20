@@ -97,11 +97,10 @@ int	set_all(t_all *all)
     return (2);
   if (!(all->font = load_font("ressources/fontroboto.ttf", 30)))
     return (3);
-  if (!(all->music = load_music("ressources/\
-spooky_scary_skeletons-Fraktal_Tribe.mp3")))
+  if (!(all->music = load_music("ressources/sound.wav")))
     return (4);
   if (!(all->sound = load_sound("ressources/sound.wav")))
-    return (4);
+    return (5);
   tekfill(all->pix, SAUMON(255));
   pos.x = W / 2 - all->img->w / 2;
   pos.y = 0;
@@ -122,11 +121,12 @@ int	main()
 {
   t_all	all;
   t_pos	pos;
-
+  int ret;
+  
   if (sdloop_init()) /* initialise SDL / TTF / Mixer */
     return (1);
-  if (set_all(&all))
-    return (2);
+  if ((ret = set_all(&all)))
+    return (ret);
   pos.x = W / 2;
   pos.y = H / 2;
   pos.w = 1; /*centre le texte sur X */
@@ -142,5 +142,5 @@ cliquez pour changer la couleur",
   free_font(all.font);
   free_sound(all.sound);
   sdloop_close(); /* Close SDL / TTF / Mixer */
-  return (1);
+  return (0);
 }
